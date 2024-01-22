@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -30,9 +31,20 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostStoreRequest $request): Post
     {
-        dd($request);
+        $data = $request->validated();
+
+        $post = new Post();
+
+        $post->name        = $data['name'];
+        $post->description = $data['description'] ?? null;
+        $post->content     = $data['content'];
+        $post->poster      = $data['poster'];
+
+        $post->save();
+
+        return $post;
     }
 
     /**
