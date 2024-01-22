@@ -5,14 +5,14 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostStoreRequest extends FormRequest
+class PostRequestCategory extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,9 +24,7 @@ class PostStoreRequest extends FormRequest
     {
         return [
             'name'        => 'required|string|min:3|max:25',
-            'description' => 'string|min:3|max:25',
-            'content'     => 'required|string|min:10',
-            'poster'      => 'required|image:jpg,jpeg?png|max:10240',
-            ];
+            'poster'      => 'required',
+        ];
     }
 }

@@ -23,3 +23,5 @@ Route::get('/test-route', function () {
 });
 
 Route::resource('posts', PostController::class);
+
+Route::resource('category', PostCategory::class);
