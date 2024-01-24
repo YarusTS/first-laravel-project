@@ -35,7 +35,7 @@ class PostCategory extends Controller
      */
     public function store(PostRequestCategory $request): Create
     {
-        $intelligence = $request->validated();
+        $data1 = $request->validated();
 
 //        $image = $data ['poster'];
 //        $imageName = Str::random(40) . '.' . $image->getClientOriginalExtension();
@@ -46,8 +46,8 @@ class PostCategory extends Controller
 
         $category = new Create();
 
-        $category->name = $intelligence['name'];
-        $category->poster = $intelligence['poster'];
+        $category->name = $data1['name'];
+        $category->poster = $data1['poster'];
 
         $category->save();
 
