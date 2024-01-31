@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostRequestCategory;
-use App\Models\Create;
+use App\Http\Requests\CategoryStoreRequest;
+use App\Models\Category;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
@@ -12,14 +12,14 @@ use Illuminate\Http\Request;
 
 
 
-class PostCategory extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(): Collection
     {
-        return Create::all();
+        return Category::all();
     }
 
     /**
@@ -27,13 +27,14 @@ class PostCategory extends Controller
      */
     public function create(): Factory|Application|View
     {
-        return view('category.create');
+        return view('categories.create');
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PostRequestCategory $request): Create
+    public function store(CategoryStoreRequest $request): Category
     {
         $data1 = $request->validated();
 
@@ -44,7 +45,7 @@ class PostCategory extends Controller
 //            $imageName
 //        );
 
-        $category = new Create();
+        $category = new Category();
 
         $category->name = $data1['name'];
         $category->poster = $data1['poster'];
@@ -57,7 +58,7 @@ class PostCategory extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Create $category): Create
+    public function show(Category $category): Category
     {
         return $category;
     }
@@ -65,7 +66,7 @@ class PostCategory extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Create $category)
+    public function edit(Category $category)
     {
         //
     }
@@ -73,7 +74,7 @@ class PostCategory extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Create $category)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -81,7 +82,7 @@ class PostCategory extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Create $category): ?bool
+    public function destroy(Category $category): ?bool
     {
         return $category->delete();
     }

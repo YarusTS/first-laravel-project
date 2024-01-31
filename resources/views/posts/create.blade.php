@@ -13,8 +13,16 @@
         <textarea name="content" id="content" cols="30" rows="10"></textarea>
     </label>
     <label>
-        Постер
+        Категория
         <input type="file" name="poster" id="poster">
+    </label>
+    <label>
+        Постер
+        <select name="category_ids" id="category_ids" multiple>
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->id }}</option>
+            @endforeach
+        </select>
     </label>
     <button type="submit">
         <span>Сохранить</span>

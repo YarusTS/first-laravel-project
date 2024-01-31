@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,4 @@ Route::get('/test-route', function () {
 
 Route::resource('posts', PostController::class);
 
-Route::resource('category', PostCategory::class);
+Route::resource('categories', CategoryController::class);

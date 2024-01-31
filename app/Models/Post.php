@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Http\Controllers\PostCategory;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -22,6 +22,6 @@ class Post extends Model
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(PostCategory::class);
+        return $this->belongsToMany(CategoryController::class);
     }
 }

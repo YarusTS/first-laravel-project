@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  */
 
 
-class Create extends Model
+class Category extends Model
 {
     use HasFactory;
 
