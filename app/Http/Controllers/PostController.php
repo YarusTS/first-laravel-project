@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\Post\PostStoreRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Contracts\View\Factory;
@@ -28,6 +28,7 @@ class PostController extends Controller
     public function create(): View|Application|Factory
     {
         $categories = Category::all();
+
         return view('posts.create', ['categories' => $categories]);
     }
 
@@ -57,6 +58,7 @@ class PostController extends Controller
         if ($data['category_ids']) {
             $post->categories()->attach($data['category_ids']);
         }
+
         return $post;
     }
 

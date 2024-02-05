@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\Category\CategoryStoreRequest;
 use App\Models\Category;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -19,6 +18,7 @@ class CategoryController extends Controller
      */
     public function index(): Collection
     {
+//        return Category::query()->with('posts')->all();
         return Category::all();
     }
 
@@ -36,19 +36,19 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request): Category
     {
-        $data1 = $request->validated();
+        $data = $request->validated();
 
-//        $image = $data ['poster'];
-//        $imageName = Str::random(40) . '.' . $image->getClientOriginalExtension();
-//        $image->move(
-//            storage_path() . '/app/public/posts/posters',
-//            $imageName
-//        );
+        $image = $data ['poster'];
+        $imageName = Str::random(40) . '.' . $image->getClientOriginalExtension();
+        $image->move(
+            storage_path() . '/app/public/categories/posters',
+            $imageName
+        );
 
         $category = new Category();
 
-        $category->name = $data1['name'];
-        $category->poster = $data1['poster'];
+        $category->name = $data['name'];
+        $category->poster = $imageName;
 
         $category->save();
 
