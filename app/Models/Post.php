@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CommentController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -24,10 +22,11 @@ class Post extends Model
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(CategoryController::class);
+        return $this->belongsToMany(Category::class);
     }
+
     public function comments(): HasMany
     {
-        return $this->hasMany(CommentController::class);
+        return $this->hasMany(Comment::class);
     }
 }
