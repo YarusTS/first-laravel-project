@@ -16,7 +16,8 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="demo form-bg" style="background: linear-gradient(135deg, #291F22, #D83F58);">
+
+<div class="demo form-bg">
     <div class="container" style="height: 1000px;">
         <div style="justify-content: center; text-align: center; margin-right: -15px; margin-left: -15px; display: flex;
     margin: auto auto;">
@@ -52,9 +53,9 @@
                         </div>
                         <label>
                             Категория
-                            <select name="category_ids" id="category_ids" multiple>
+                            <select name="category_ids[]" id="category_ids" multiple>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->id }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </label>
