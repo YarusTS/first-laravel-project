@@ -15,10 +15,6 @@
     justify-content: center;
 }
 
-.row-1 {
-    width: 100%;
-}
-
 .center {
     color: white;
     display: flex;
@@ -115,7 +111,7 @@
     box-shadow: none;
 }
 
-.control__text {
+#content {
     height: 90px;
 }
 

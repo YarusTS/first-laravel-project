@@ -17,7 +17,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\Contracts\Foundation\Application|Factory|View|Application
+    public function index(): Application|Factory|View
     {
         $posts = Post::with('categories')->get();
 

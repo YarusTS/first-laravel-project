@@ -17,7 +17,7 @@
 <div class="demo form-bg">
     <div class="container">
         <div class="row">
-            <div class="row-1 col-md-2 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
+            <div class="col-md-2 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
                 <div class="form-container">
                     <h1 class="center">Категория постов</h1>
                     <form action="{{ route('posts.store') }}" class="form-horizontal" method="post"
@@ -40,7 +40,6 @@
                             <label>
                                 <span class="title-span">Содержание</span>
                                 <textarea class="form-control"
-                                          style="height: 90px;"
                                           name="content" id="content" cols="30" rows="10"
                                           required></textarea>
                             </label>

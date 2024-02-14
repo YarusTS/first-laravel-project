@@ -9,16 +9,20 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style-index.css') }}">
 </head>
 <body>
-@foreach($posts as $post)
-    <div class="container">
-        <h4> {{ $post->name }}}</h4>
-        <img src="{{ $post->poster }}" alt="">
-        <p> {{ $post->desription }}}</p>
-        <p> {{ $post->content }}}</p>
-        @foreach($post->categories as $category)
-            <span>{{ $category->name }}}</span>
-        @endforeach
-    </div>
-@endforeach
+@if($posts->isEmpty())
+    <span>Нет постов</span>
+@else
+    @foreach($posts as $post)
+        <div class="container">
+            <h4> {{ $post->name }}}</h4>
+            <img src="{{ $post->poster }}" alt="">
+            <p> {{ $post->desription }}}</p>
+            <p> {{ $post->content }}}</p>
+            @foreach($post->categories as $category)
+                <span>{{ $category->name }}}</span>
+            @endforeach
+        </div>
+    @endforeach
+@endif
 </body>
 </html>
