@@ -9,20 +9,22 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style-index.css') }}">
 </head>
 <body>
-@if($posts->isEmpty())
-    <span>Нет постов</span>
-@else
-    @foreach($posts as $post)
-        <div class="container">
-            <h4> {{ $post->name }}}</h4>
-            <img src="{{ $post->poster }}" alt="">
-            <p> {{ $post->desription }}}</p>
-            <p> {{ $post->content }}}</p>
-            @foreach($post->categories as $category)
-                <span>{{ $category->name }}}</span>
+    <div class="container">
+        @if($posts->isEmpty())
+            <span>Нет постов</span>
+        @else
+            @foreach($posts as $post)
+                <div class="card">
+                    <h4> Имя: {{ $post->name }} </h4>
+                    <img src="{{ $post->poster }}" alt="">
+                    <p> Заголовок: {{ $post->desription }} </p>
+                    <p> Описание: {{ $post->content }} </p>
+                    @foreach($post->categories as $category)
+                        <span>Категория: {{ $category->name }} </span>
+                    @endforeach
+                </div>
             @endforeach
-        </div>
-    @endforeach
-@endif
+        @endif
+    </div>
 </body>
 </html>
