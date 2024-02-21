@@ -94,17 +94,19 @@
 {{--    <script src="js/smoothscroll.js"></script>--}}
 {{--    <script src="js/custom.js"></script>--}}
 
-@vite(['resources/css/app.css'])
-@vite(['resources/css/bootstrap.min.css'])
-@vite(['resources/css/font-awesome.min.css'])
-@vite(['resources/css/magnific-popup.css'])
-
-@vite(['resources/js/app.js'])
-@vite(['resources/js/custom.js'])
-@vite(['resources/js/bootstrap.min.js'])
-@vite(['resources/js/particles.min.js'])
-@vite(['resources/js/smoothscroll.js'])
-@vite(['resources/js/jquery.js'])
+@vite([
+    'resources/js/jquery.js',
+    'resources/css/app.css',
+    'resources/css/bootstrap.min.css',
+    'resources/css/font-awesome.min.css',
+    'resources/css/magnific-popup.css',
+    'resources/js/app.js',
+    'resources/js/custom.js',
+    'resources/js/bootstrap.min.js',
+    'resources/js/particles.min.js',
+    'resources/js/jquery.parallax.js',
+    'resources/js/smoothscroll.js'
+])
 
 
 {{--    @vite(['resources/fonts/font-awesome.min.css'])--}}
