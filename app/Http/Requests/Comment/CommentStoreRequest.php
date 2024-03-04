@@ -24,10 +24,9 @@ class CommentStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:3|max:25',
-            'content' => 'required|string|min:10',
-            'poster' => 'required|image:jpg,jpeg,png|max:10240',
-            'comment_ids' => 'array',
-            'comment_ids.*' => 'sometimes|integer',
+            'email' => 'required|email',
+            'message' => 'required|string|min:3',
+            'post_id' => 'required|integer',
         ];
     }
 }

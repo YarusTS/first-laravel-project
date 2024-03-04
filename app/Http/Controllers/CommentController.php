@@ -18,9 +18,9 @@ class CommentController extends Controller
 
         $comment = new Comment();
 
-        $comment->name = $data['name'];
-        $comment->email = $data['email'];
-
+        $comment->content = $data['message'];
+        $comment->user_id = 1;
+        $comment->post_id = $data['post_id'];
         $comment->save();
 
         return redirect()->back();
@@ -29,23 +29,10 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comment $comment): ?bool
+    public function destroy(Comment $comment): RedirectResponse
     {
-//         return $comment->delete()->with('success', 'Комментарий успешно удален');
-        return $comment->delete();
-//    public function destroy($id): RedirectResponse
-//    {
-//        $comment=Comment::where('id',$id)->first();
-//        $comment->delete();
-//        return redirect()->back();
-//    }
+        $comment->delete();
 
-//    public function destroy($id): RedirectResponse
-//    {
-//        $post = Comment::find($id);
-//        $post->delete();
-//        return redirect()->back();
-//        $post = Post::find($id);
-//        $post->delete();
+        return redirect()->back();
     }
 }

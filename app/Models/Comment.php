@@ -21,17 +21,6 @@ class Comment extends Model
 {
     use HasFactory;
 
-
-//    public static function where(string $string, $id): BelongsTo
-//    {
-//        return $this->belongsTo(User::class);
-//    }
-
-//    public static function find($id): BelongsTo
-//    {
-//        return $this->belongsTo(User::class);
-//    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
