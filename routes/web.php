@@ -27,3 +27,7 @@ Route::resource('posts', PostController::class);
 Route::resource('categories', CategoryController::class);
 
 Route::resource('comments', CommentController::class)->only(['store', 'destroy']);
+
+//Route::delete('/comments/{id}', 'CommentController@destroy')->name('comments.destroy');
+//Route::delete('/comments/destroy/{id}', 'CommentController@destroy')->name('comment.destroy');
+Route::delete('/deleteComment/{id}', 'CommentController@destroy');

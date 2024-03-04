@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+
 /**
  * @property int    $id
  * @property string $content
@@ -20,13 +21,26 @@ class Comment extends Model
 {
     use HasFactory;
 
+
+//    public static function where(string $string, $id): BelongsTo
+//    {
+//        return $this->belongsTo(User::class);
+//    }
+
+//    public static function find($id): BelongsTo
+//    {
+//        return $this->belongsTo(User::class);
+//    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
+
 
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);
     }
 }
+
