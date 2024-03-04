@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+
 /**
  * @property int    $id
  * @property string $name
@@ -20,7 +21,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    public function categories(): BelongsToMany
+    public function categories():BelongsToMany
     {
         return $this->belongsToMany(Category::class);
     }

@@ -69,9 +69,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post): \Illuminate\Contracts\Foundation\Application|Factory|View|Application
+    public function show(Post $post): Application|Factory|View
     {
-        return view('layouts.app', $post);
+        return view('posts.show', compact('post'));
     }
 
     /**
