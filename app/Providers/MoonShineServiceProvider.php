@@ -42,7 +42,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             MenuGroup::make('Статьи', [
                 MenuItem::make('Посты', new PostResource())
                     ->badge(fn() => Post::count())
-                    ->icon('hiroicons.outline.academic-cap'),
+                    ->icon('heroicons.outline.academic-cap'),
                 MenuItem::make('Категории', new CategoryResource()),
             ]),
         ];
