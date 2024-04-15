@@ -17,6 +17,8 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+    @vite(['resources/js/app.js'])
 </head>
 <body>
 <div class="navbar navbar-default navbar-static-top" role="navigation">

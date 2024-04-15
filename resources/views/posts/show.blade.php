@@ -86,19 +86,25 @@
 
 
                     <div class="blog-comment-form">
-                        <h3>Оставить комментарий</h3>
-                        <form action="{{ route('comments.store') }}" method="post">
-                            @csrf
-                            <input type="hidden" name="post_id" value="{{ $post->id }}">
-                            <input type="text" class="form-control" placeholder="Name" name="name" required>
-                            <input type="email" class="form-control" placeholder="Email" name="email" required>
-                            <textarea name="message" rows="5" class="form-control" id="message" placeholder="Message"
-                                      message="message" required="required"></textarea>
-                            <div class="col-md-3 col-sm-4">
-                                <input name="submit" type="submit" class="form-control" id="submit"
-                                       value="Отправить комментарий">
-                            </div>
-                        </form>
+                        @auth()
+                            <h3>Оставить комментарий</h3>
+                            <form action="{{ route('comments.store') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                <input type="text" class="form-control" placeholder="Name" name="name" required>
+                                <input type="email" class="form-control" placeholder="Email" name="email" required>
+                                <textarea type="text" name="message" rows="5" class="form-control tinyMce" id="message" placeholder="Message"
+                                          message="message"
+{{--                                          required="required"--}}
+                                ></textarea>
+                                <div class="col-md-3 col-sm-4">
+                                    <input name="submit" type="submit" class="form-control" id="submit"
+                                           value="Отправить комментарий">
+                                </div>
+                            </form>
+                        @else
+                            <h3>Войдите, чтобы оставить комментарий</h3>
+                        @endauth
                     </div>
                 </div>
             </div>
