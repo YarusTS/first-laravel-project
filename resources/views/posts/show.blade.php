@@ -35,9 +35,9 @@
                         </div>
 
                         <div class="blog-post-des">
-                            {{ $post->description }}
+                            {!! $post->description !!}
                         </div>
-
+                        {!! $post->content !!}
                         <div class="blog-author">
                             <div class="media">
                                 <div class="media-object pull-left">
@@ -70,7 +70,7 @@
                                             @else
                                                 <span>{{$comment->created_at->translateFormat('j F Y') }}</span>
                                             @endif
-                                            <p>{{$comment->content}}</p>
+                                            {!! $comment->content !!}
                                         </div>
                                         <form action="{{ route('comments.destroy', $comment->id) }}" method="post"
                                               onsubmit="return confirm('Вы уверены?')">
@@ -106,7 +106,7 @@
     </section>
     <style>
         .main-single-post {
-            background: url({{ asset('storage/posts/posters/' . $post->poster) }}) no-repeat;
+            background: url({{ asset('storage/' . $post->poster) }}) no-repeat;
         }
     </style>
 @endsection

@@ -44,6 +44,8 @@ class PostResource extends ModelResource
                     ->hideOnIndex(),
                 Image::make('Картинка', 'poster')
                     ->required()
+                    ->dir('posts/posters')
+                    ->removable()
                     ->hideOnIndex(),
                 BelongsToMany::make('Категории', 'categories', resource: new CategoryResource())
                     ->selectMode()

@@ -28,7 +28,7 @@
                 <span class="icon icon-bar"></span>
                 <span class="icon icon-bar"></span>
             </button>
-            <a href="index.html" class="navbar-brand">Neuron</a>
+            <a href="{{ route('home_page') }}" class="navbar-brand">Neuron</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">

@@ -22,7 +22,7 @@
                         <div class="blog-post-thumb">
                             <div class="blog-post-image">
                                 <a href="{{ route('posts.show', $post->slug) }}">
-                                    <img style="width: 50%; height: 30%" src="{{ asset('storage/posts/posters/' . $post->poster) }}"
+                                    <img style="width: 50%; height: 30%" src="{{ asset('storage/' . $post->poster) }}"
                                          class="img-responsive img-responsive--dimensions" alt="Blog Image">
                                 </a>
                             </div>
@@ -36,7 +36,7 @@
                                 <span><i class="fa fa-comment-o"></i>{{ trans_choice(':count комментарий|:count комментария|:count комментариев', $post->comments->count())}}</span>
                             </div>
                             <div class="blog-post-des">
-                                <p>{{ $post->description }}</p>
+                                {!! $post->description !!}
                                 <a href="{{ route('posts.show', $post->slug) }}" class="btn btn-default">Читать далее...</a>
                             </div>
                         </div>
